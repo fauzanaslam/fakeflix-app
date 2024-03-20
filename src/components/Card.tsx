@@ -16,7 +16,7 @@ export default function ActionAreaCard() {
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   useEffect(() => {
-    if (searchTerm.trim() !== "") {
+    if (searchTerm.trim().length > 3) {
       searchMovie(searchTerm).then((result) => {
         setPopularMovies(result);
       });
