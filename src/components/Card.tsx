@@ -1,14 +1,14 @@
-import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
 import { Button, Card, CardActionArea, Grid, TextField } from "@mui/material";
 import { searchMovie, getMovieList } from "../api";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 interface Movie {
   title: string;
   poster_path: string;
   overview: string;
+  id: string;
 }
 
 export default function ActionAreaCard() {
@@ -57,22 +57,16 @@ export default function ActionAreaCard() {
         <Grid item key={index} xs={12} sm={6} md={3}>
           <CardActionArea>
             <Card sx={{ height: "100%" }}>
-              <CardMedia
-                component="img"
-                height="140"
-                image={`${import.meta.env.VITE_REACT_APP_BASEIMGURL}/${
-                  movie.poster_path
-                }`}
-                alt="Movie Poster"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {movie.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {movie.overview}
-                </Typography>
-              </CardContent>
+              <Link to={`/${movie.id}`}>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image={`${import.meta.env.VITE_REACT_APP_BASEIMGURL}/${
+                    movie.poster_path
+                  }`}
+                  alt="Movie Poster"
+                />
+              </Link>
             </Card>
           </CardActionArea>
         </Grid>

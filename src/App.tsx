@@ -1,14 +1,15 @@
-import { ThemeProvider } from "@emotion/react";
-import theme from "./utils/Theme";
-import Header from "./components/Header";
-import Features from "./components/Features";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import DetailMovie from "./pages/DetailMovie";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Header />
-      <Features />
-    </ThemeProvider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/:movieId" element={<DetailMovie />} />
+      </Routes>
+    </Router>
   );
 }
 

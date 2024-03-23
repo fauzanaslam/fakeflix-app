@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import { grey } from "@mui/material/colors";
 import { useEffect, useState } from "react";
 
-const Header = () => {
+const Header = ({ OpenModal }: { OpenModal: () => void }) => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
 
@@ -73,7 +73,7 @@ const Header = () => {
               </Select>
             </Grid>
             <Grid item xs="auto">
-              <Button color="primary" variant="contained">
+              <Button color="primary" variant="contained" onClick={OpenModal}>
                 Sign in
               </Button>
             </Grid>
